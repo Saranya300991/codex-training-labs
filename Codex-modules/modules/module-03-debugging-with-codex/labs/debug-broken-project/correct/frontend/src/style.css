@@ -64,19 +64,3 @@ button:disabled {
   background: #eef2ff;
   border: 1px solid #cbd5ff;
 }
-
-.status[data-state="success"] {
-  background: #ecfdf5;
-  border-color: #22c55e;
-  color: #166534;
-}
-
-.status[data-state="error"] {
-  background: #fef2f2;
-  border-color: #fca5a5;
-  color: #991b1b;
-}
-
-.status[hidden] {
-  display: none;
-}

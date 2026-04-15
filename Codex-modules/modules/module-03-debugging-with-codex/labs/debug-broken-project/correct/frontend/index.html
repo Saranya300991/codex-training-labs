@@ -4,25 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Authorization Lab (Correct)</title>
-    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <main class="panel">
-      <h1>Authorization demo</h1>
-      <p>Try learner/pass123 or demo/codex to see the success prompt.</p>
-      <form id="auth-form" class="form">
-        <label>
-          User ID
-          <input type="text" name="userId" placeholder="learner" autocomplete="username" required />
-        </label>
-        <label>
-          Password
-          <input type="password" name="password" placeholder="pass123" autocomplete="current-password" required />
-        </label>
-        <button type="submit">Sign in</button>
-      </form>
-      <div id="status" class="status" aria-live="polite" hidden></div>
-    </main>
-    <script src="./auth.js" defer></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

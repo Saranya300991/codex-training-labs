@@ -1,0 +1,401 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 4 /Kids [3 0 R 5 0 R 7 0 R 9 0 R] >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 2882 >>
+stream
+BT
+/F1 11 Tf
+50 742 Td
+14 TL
+(# Codebase Understanding Answers) Tj
+T*
+() Tj
+T*
+(This document completes the Myntra-style-store codebase-understanding prompts with a) Tj
+T*
+(technical summary of the current React + Express stack.) Tj
+T*
+() Tj
+T*
+(## 1. Entry Point Architecture) Tj
+T*
+() Tj
+T*
+(The front-end entry begins in `frontend/index.html`, where Vite serves the HTML shell and) Tj
+T*
+(injects the browser entry module `/src/main.jsx`. That file imports `StrictMode` from React,) Tj
+T*
+(`createRoot` from `react-dom/client`, global styles from `index.css`, and the root component) Tj
+T*
+(from `App.jsx`. It mounts the app into the `#root` DOM node with) Tj
+T*
+(`createRoot\(...\).render\(...\)`, so Vite is responsible for serving the module graph in) Tj
+T*
+(development while React takes over rendering once the page loads.) Tj
+T*
+() Tj
+T*
+(`frontend/src/App.jsx` is the application root component. It owns the major UI sections,) Tj
+T*
+(initializes page state, fetches catalog data from the backend, derives category data for) Tj
+T*
+(display, and renders the storefront shell. In practice, `main.jsx` is the bootstrapping) Tj
+T*
+(entry and `App.jsx` is the functional entry for the product experience.) Tj
+T*
+() Tj
+T*
+(The back-end entry is `backend/index.js`. Express initializes by importing `express` and) Tj
+T*
+(`cors`, creating the app with `express\(\)`, assigning the port from `process.env.PORT ||) Tj
+T*
+(5174`, and registering middleware with `app.use\(cors\(\)\)` and `app.use\(express.json\(\)\)`. It) Tj
+T*
+(defines an in-memory product catalog, exposes `GET /api/products`, and starts the server) Tj
+T*
+(with `app.listen\(PORT, ...\)`. That route is the main catalog endpoint consumed by the React) Tj
+T*
+(app.) Tj
+T*
+() Tj
+T*
+(## 2. Data Flow & API Contract) Tj
+T*
+() Tj
+T*
+(The data flow starts in `frontend/src/App.jsx` inside a `useEffect` hook that runs on) Tj
+T*
+(initial render. The component calls `fetch\("http://localhost:5174/api/products"\)`, waits for) Tj
+T*
+(the response, checks `res.ok`, then parses JSON with `res.json\(\)`.) Tj
+T*
+() Tj
+T*
+(The backend route in `backend/index.js` handles `GET /api/products`. It reads from the local) Tj
+T*
+(`products` array and annotates each item before returning it. The server-side annotations) Tj
+T*
+(include:) Tj
+T*
+() Tj
+T*
+(- `priceFormatted`, generated with `Intl.NumberFormat\("en-IN", { style: "currency",) Tj
+T*
+(  currency: product.currency }\)`) Tj
+T*
+(- preserved delivery text from each product's `delivery` field) Tj
+T*
+(- preserved merchandising metadata such as `badge`, `category`, and `description`) Tj
+T*
+(- a top-level `banner` string returned alongside the curated product list) Tj
+T*
+() Tj
+T*
+(The API contract returned to the client is:) Tj
+T*
+() Tj
+T*
+(```json) Tj
+T*
+({) Tj
+T*
+(  "banner": "Festival Drop - Free COD - Express delivery",) Tj
+T*
+(  "curated": [) Tj
+T*
+(    {) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 2189 >>
+stream
+BT
+/F1 11 Tf
+50 742 Td
+14 TL
+(      "id": 1,) Tj
+T*
+(      "name": "Anaya Chiffon Saree",) Tj
+T*
+(      "price": 4599,) Tj
+T*
+(      "currency": "INR",) Tj
+T*
+(      "badge": "New",) Tj
+T*
+(      "category": "Ethnic",) Tj
+T*
+(      "description": "Lightweight chiffon saree paired with subtle embroidery.",) Tj
+T*
+(      "delivery": "2-3 days",) Tj
+T*
+(      "priceFormatted": "Rs. 4,599.00") Tj
+T*
+(    }) Tj
+T*
+(  ]) Tj
+T*
+(}) Tj
+T*
+(```) Tj
+T*
+() Tj
+T*
+(On the client, the fetched payload populates React state as follows:) Tj
+T*
+() Tj
+T*
+(- `setBanner\(data.banner\)`) Tj
+T*
+(- `setProducts\(data.curated\)`) Tj
+T*
+(- `setStatus\("ready"\)`) Tj
+T*
+() Tj
+T*
+(If the request fails or the response is not OK, the app logs the error in the browser) Tj
+T*
+(console and sets `status` to `"error"`. The UI uses `status` in multiple places:) Tj
+T*
+() Tj
+T*
+(- hero card: shows loading, error, or the curated item count) Tj
+T*
+(- product section: shows a fallback prompt if the backend is unavailable) Tj
+T*
+(- product grid: conditionally renders loading text or the mapped `ProductCard` components) Tj
+T*
+() Tj
+T*
+(This makes readiness visible both in state and in the rendered storefront.) Tj
+T*
+() Tj
+T*
+(## 3. Layer Separation) Tj
+T*
+() Tj
+T*
+(The dependency boundary is cleanly split between rendering concerns in the frontend and API) Tj
+T*
+(concerns in the backend.) Tj
+T*
+() Tj
+T*
+(`frontend/package.json` contains rendering and developer-experience packages:) Tj
+T*
+() Tj
+T*
+(- `react` and `react-dom`: component rendering and DOM mounting) Tj
+T*
+(- `vite`: dev server, module graph, and production build pipeline) Tj
+T*
+(- `@vitejs/plugin-react`: React support in Vite) Tj
+T*
+(- `eslint`, `@eslint/js`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`, and) Tj
+T*
+(  `globals`: linting and code-quality tooling) Tj
+T*
+(- `@types/react` and `@types/react-dom`: editor and tooling support) Tj
+T*
+() Tj
+T*
+(`backend/package.json` contains API/runtime packages:) Tj
+T*
+() Tj
+T*
+(- `express`: HTTP server and route definition) Tj
+T*
+(- `cors`: cross-origin access for the frontend dev server) Tj
+T*
+() Tj
+T*
+(If the project grows, the extension points are straightforward:) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 2831 >>
+stream
+BT
+/F1 11 Tf
+50 742 Td
+14 TL
+() Tj
+T*
+(- database layer: add packages such as `pg`, `mongoose`, or `prisma` on the backend only) Tj
+T*
+(- feature flags or config: add backend config libraries like `dotenv` and possibly a) Tj
+T*
+(  shared config contract) Tj
+T*
+(- client data caching: add frontend libraries such as TanStack Query if API calls become) Tj
+T*
+(  more complex) Tj
+T*
+(- validation: add `zod`, `joi`, or `express-validator` on the backend for response and) Tj
+T*
+(  request contracts) Tj
+T*
+(- observability: add backend logging/metrics packages and frontend monitoring only where) Tj
+T*
+(  user telemetry is needed) Tj
+T*
+() Tj
+T*
+(The current setup keeps rendering logic in the Vite/React layer and data-serving logic in) Tj
+T*
+(Express, which is a good baseline for scaling.) Tj
+T*
+() Tj
+T*
+(## 4. Operational Notes) Tj
+T*
+() Tj
+T*
+(The backend currently has lightweight operational behavior:) Tj
+T*
+() Tj
+T*
+(- logging: a startup log is emitted when `app.listen\(...\)` succeeds, showing) Tj
+T*
+(  `http://localhost:${PORT}`) Tj
+T*
+(- error handling: there is no centralized Express error middleware yet) Tj
+T*
+(- route failure handling: the `/api/products` route is synchronous and simple, so there is) Tj
+T*
+(  currently no explicit try/catch path) Tj
+T*
+(- CORS policy: `app.use\(cors\(\)\)` enables permissive cross-origin access so the Vite) Tj
+T*
+(  frontend can call the API during development) Tj
+T*
+(- JSON parsing: `app.use\(express.json\(\)\)` is enabled even though the current route is a) Tj
+T*
+(  `GET`, which prepares the app for future JSON request bodies) Tj
+T*
+() Tj
+T*
+(For onboarding in a repo three times larger, I would describe this backend as:) Tj
+T*
+() Tj
+T*
+("The API is a small Express service with a single catalog endpoint, permissive dev CORS, and) Tj
+T*
+(minimal operational scaffolding. Startup logging exists, but structured request logging,) Tj
+T*
+(centralized error middleware, validation, and environment-specific CORS controls would be) Tj
+T*
+(the first improvements as the service surface grows.") Tj
+T*
+() Tj
+T*
+(That framing gives a new engineer both the current state and the expected next steps without) Tj
+T*
+(overstating maturity.) Tj
+T*
+() Tj
+T*
+(## 5. Summarization Habit) Tj
+T*
+() Tj
+T*
+(One repeatable process for reading a larger repo is:) Tj
+T*
+() Tj
+T*
+(1. Start with runtime files: `package.json`, entry points, and start/build scripts.) Tj
+T*
+(2. Record the boot sequence for each app: browser entry, root component, server entry,) Tj
+T*
+(   registered routes, and default ports.) Tj
+T*
+(3. List the key directories by responsibility, such as `frontend/src` for UI, `backend`) Tj
+T*
+(   for APIs, and `docs` for project guidance.) Tj
+T*
+(4. Trace one user-visible flow end to end, such as a page load calling an API and) Tj
+T*
+(   rendering the response.) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 11 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 779 >>
+stream
+BT
+/F1 11 Tf
+50 742 Td
+14 TL
+(5. Capture operational notes separately: required commands, ports, environment) Tj
+T*
+(   variables, logging, and obvious scaling gaps.) Tj
+T*
+() Tj
+T*
+(For this repository, the actionable summary would include:) Tj
+T*
+() Tj
+T*
+(- frontend run command: `npm run dev`) Tj
+T*
+(- backend run command: `npm start`) Tj
+T*
+(- frontend URL: `http://localhost:5173`) Tj
+T*
+(- backend URL: `http://localhost:5174`) Tj
+T*
+(- primary frontend files: `frontend/src/main.jsx`, `frontend/src/App.jsx`) Tj
+T*
+(- primary backend file: `backend/index.js`) Tj
+T*
+(- primary API: `GET /api/products`) Tj
+T*
+() Tj
+T*
+(This habit keeps summaries technical, concise, and useful for the next engineer who needs to) Tj
+T*
+(run, debug, or extend the codebase quickly.) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000133 00000 n 
+0000000260 00000 n 
+0000003194 00000 n 
+0000003321 00000 n 
+0000005562 00000 n 
+0000005689 00000 n 
+0000008572 00000 n 
+0000008700 00000 n 
+0000009531 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+9602
+%%EOF

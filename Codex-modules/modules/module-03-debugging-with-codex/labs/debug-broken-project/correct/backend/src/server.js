@@ -1,4 +1,4 @@
-﻿const express = require("express");
+const express = require("express");
 const cors = require("cors");
 
 const app = express();
@@ -11,7 +11,8 @@ const users = {
 };
 
 app.post("/login", (req, res) => {
-  const { userId, password } = req.body;
+  const { userId, password } = req.body ?? {};
+
   if (!userId || !password) {
     return res.status(400).json({ error: "Enter both user ID and password." });
   }
@@ -24,7 +25,7 @@ app.post("/login", (req, res) => {
   return res.json({ message: "Sign in successful" });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Auth backend (correct) listening on port ${PORT}`);
 });
