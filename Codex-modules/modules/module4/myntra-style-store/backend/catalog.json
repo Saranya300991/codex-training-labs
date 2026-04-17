@@ -1,0 +1,372 @@
+{
+  "site": {
+    "name": "Muse Avenue",
+    "tagline": "Premium fashion edits for every mood",
+    "promoStrip": "End of Season Sale | Up to 60% off | Free shipping on orders above INR 1,999"
+  },
+  "categories": ["Men", "Women", "Kids", "Beauty", "Home & Living"],
+  "heroSlides": [
+    {
+      "id": 1,
+      "eyebrow": "End of Season Sale",
+      "title": "Premium silhouettes with brighter price tags",
+      "subtitle": "Discover polished resort dresses, tailored shirts, and modern accessories with a warm Myntra-inspired palette.",
+      "ctaLabel": "Shop New Arrivals",
+      "ctaHref": "/products?sort=popularity",
+      "image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=80"
+    },
+    {
+      "id": 2,
+      "eyebrow": "Luxe Streetwear",
+      "title": "Minimal layers, elevated sneakers, and statement denim",
+      "subtitle": "From after-hours edits to weekend city uniforms, explore looks that balance comfort with polish.",
+      "ctaLabel": "Browse Men",
+      "ctaHref": "/products?category=Men",
+      "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=80"
+    },
+    {
+      "id": 3,
+      "eyebrow": "Beauty Spotlight",
+      "title": "Glow kits and modern rituals for your vanity shelf",
+      "subtitle": "Refresh your routine with high-impact tints, skin essentials, and clean packaging.",
+      "ctaLabel": "Explore Beauty",
+      "ctaHref": "/products?category=Beauty",
+      "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80"
+    }
+  ],
+  "categoryTiles": [
+    {
+      "name": "Women",
+      "caption": "Fluid dresses, soft tailoring, and standout festive edits",
+      "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "name": "Men",
+      "caption": "Relaxed shirts, premium denim, and sneaker-led layers",
+      "image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "name": "Beauty",
+      "caption": "Modern essentials with glossy, gifting-ready packaging",
+      "image": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "name": "Home & Living",
+      "caption": "Soft neutrals, tactile decor, and apartment-friendly accents",
+      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+    }
+  ],
+  "brandHighlights": [
+    {
+      "name": "Aster Studio",
+      "description": "Soft tailoring and event-ready silhouettes with elevated drape.",
+      "accent": "#ff5f8f"
+    },
+    {
+      "name": "Northline",
+      "description": "Urban menswear staples with sneaker culture energy.",
+      "accent": "#ff8a34"
+    },
+    {
+      "name": "Luna Ritual",
+      "description": "Beauty essentials designed for glow, gifting, and travel.",
+      "accent": "#ff6f61"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "slug": "rose-satin-drape-dress",
+      "name": "Rose Satin Drape Dress",
+      "brand": "Aster Studio",
+      "category": "Women",
+      "price": 3899,
+      "originalPrice": 6499,
+      "discount": 40,
+      "rating": 4.6,
+      "reviewCount": 218,
+      "badge": "Trending",
+      "popularity": 98,
+      "description": "A fluid satin midi dress with gathered drape detailing and a soft luminous finish.",
+      "details": [
+        "Satin-touch woven fabric",
+        "Side drape detail with concealed zip",
+        "Ideal for cocktails, festive dinners, and occasion wear"
+      ],
+      "delivery": "Delivery in 2-3 days",
+      "sizes": ["XS", "S", "M", "L"],
+      "colors": ["Rose", "Blush"],
+      "images": [
+        "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=900&q=80"
+      ],
+      "reviews": [
+        {
+          "author": "Riya S.",
+          "title": "Beautiful fall and finish",
+          "rating": 5,
+          "comment": "The fabric catches light beautifully and the fit feels premium."
+        },
+        {
+          "author": "Mira P.",
+          "title": "Great for evening events",
+          "rating": 4,
+          "comment": "Elegant silhouette and strong color payoff."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "tailored-linen-overshirt",
+      "name": "Tailored Linen Overshirt",
+      "brand": "Northline",
+      "category": "Men",
+      "price": 2799,
+      "originalPrice": 4299,
+      "discount": 35,
+      "rating": 4.4,
+      "reviewCount": 184,
+      "badge": "Best Seller",
+      "popularity": 93,
+      "description": "A crisp linen overshirt designed for layering over tees, tanks, and sharp resort edits.",
+      "details": [
+        "Breathable linen blend",
+        "Relaxed fit with structured collar",
+        "Works from office casual to weekend travel"
+      ],
+      "delivery": "Express delivery available",
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": ["Stone", "Olive"],
+      "images": [
+        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=900&q=80"
+      ],
+      "reviews": [
+        {
+          "author": "Karan M.",
+          "title": "Looks sharp without trying too hard",
+          "rating": 4,
+          "comment": "The overshirt is relaxed but still polished enough for dinners."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "playtime-knit-set",
+      "name": "Playtime Knit Set",
+      "brand": "Tiny Orbit",
+      "category": "Kids",
+      "price": 1899,
+      "originalPrice": 2699,
+      "discount": 30,
+      "rating": 4.7,
+      "reviewCount": 121,
+      "badge": "New",
+      "popularity": 89,
+      "description": "A coordinated knit set with playful stripes and a soft handfeel for all-day comfort.",
+      "details": [
+        "Soft cotton knit",
+        "Easy elastic waistband",
+        "Comfortable for playdates and family outings"
+      ],
+      "delivery": "Delivery in 3-4 days",
+      "sizes": ["2-3Y", "4-5Y", "6-7Y"],
+      "colors": ["Sunrise", "Sky"],
+      "images": [
+        "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80"
+      ],
+      "reviews": [
+        {
+          "author": "Nisha R.",
+          "title": "Soft and cheerful",
+          "rating": 5,
+          "comment": "Bright colors and the knit feels gentle on skin."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "luminous-skin-essentials-kit",
+      "name": "Luminous Skin Essentials Kit",
+      "brand": "Luna Ritual",
+      "category": "Beauty",
+      "price": 1599,
+      "originalPrice": 2399,
+      "discount": 33,
+      "rating": 4.5,
+      "reviewCount": 307,
+      "badge": "Editor's Pick",
+      "popularity": 96,
+      "description": "A glow-forward skin prep trio with cleanser, hydrating serum, and a satin finish mist.",
+      "details": [
+        "Travel-friendly format",
+        "Suitable for daily use",
+        "Glow-focused routine with soft fragrance"
+      ],
+      "delivery": "Delivery by tomorrow",
+      "sizes": ["One Size"],
+      "colors": ["Nude"],
+      "images": [
+        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1626784215021-2e39ccf971cd?auto=format&fit=crop&w=900&q=80"
+      ],
+      "reviews": [
+        {
+          "author": "Ayesha K.",
+          "title": "Lovely gifting set",
+          "rating": 5,
+          "comment": "Packaging feels expensive and the mist is especially good."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "sculpted-ceramic-vase-duo",
+      "name": "Sculpted Ceramic Vase Duo",
+      "brand": "Casa Loom",
+      "category": "Home & Living",
+      "price": 2299,
+      "originalPrice": 3299,
+      "discount": 30,
+      "rating": 4.3,
+      "reviewCount": 88,
+      "badge": "Fresh Drop",
+      "popularity": 78,
+      "description": "A matte ceramic vase pair designed for layered coffee table styling and shelf moments.",
+      "details": [
+        "Set of two",
+        "Neutral sculptural finish",
+        "Modern decor accent for tables and consoles"
+      ],
+      "delivery": "Delivery in 4-5 days",
+      "sizes": ["Set of 2"],
+      "colors": ["Ivory"],
+      "images": [
+        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=900&q=80"
+      ],
+      "reviews": [
+        {
+          "author": "Devika T.",
+          "title": "Minimal and versatile",
+          "rating": 4,
+          "comment": "Works well with pampas stems and clean shelves."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "air-knit-runner-sneakers",
+      "name": "Air Knit Runner Sneakers",
+      "brand": "Northline",
+      "category": "Men",
+      "price": 3499,
+      "originalPrice": 4999,
+      "discount": 30,
+      "rating": 4.2,
+      "reviewCount": 264,
+      "badge": "Hot Right Now",
+      "popularity": 91,
+      "description": "A sleek pair of knit runners with a lightweight sole and tonal everyday styling.",
+      "details": [
+        "Breathable knit upper",
+        "Cushioned sole",
+        "Easy to pair with denim, joggers, and cargos"
+      ],
+      "delivery": "Express delivery available",
+      "sizes": ["40", "41", "42", "43", "44"],
+      "colors": ["Ash", "Black"],
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=900&q=80"
+      ],
+      "reviews": [
+        {
+          "author": "Aman G.",
+          "title": "Comfortable for daily wear",
+          "rating": 4,
+          "comment": "Good cushioning and the silhouette looks modern."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "petal-structured-handbag",
+      "name": "Petal Structured Handbag",
+      "brand": "Aster Studio",
+      "category": "Women",
+      "price": 2599,
+      "originalPrice": 3899,
+      "discount": 33,
+      "rating": 4.8,
+      "reviewCount": 156,
+      "badge": "Most Loved",
+      "popularity": 95,
+      "description": "A refined top-handle bag with clean geometry, soft texture, and statement hardware.",
+      "details": [
+        "Structured silhouette",
+        "Detachable crossbody strap",
+        "Fits essentials plus a mini notebook"
+      ],
+      "delivery": "Delivery in 2 days",
+      "sizes": ["One Size"],
+      "colors": ["Petal Pink", "Cream"],
+      "images": [
+        "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1542291026-ecb4fe5d5d61?auto=format&fit=crop&w=900&q=80"
+      ],
+      "reviews": [
+        {
+          "author": "Sonal B.",
+          "title": "Exactly the polished bag I wanted",
+          "rating": 5,
+          "comment": "Looks luxe and the hardware feels sturdy."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "cloud-cotton-bedding-set",
+      "name": "Cloud Cotton Bedding Set",
+      "brand": "Casa Loom",
+      "category": "Home & Living",
+      "price": 2999,
+      "originalPrice": 4599,
+      "discount": 35,
+      "rating": 4.4,
+      "reviewCount": 142,
+      "badge": "Weekend Refresh",
+      "popularity": 84,
+      "description": "A soft cotton bedding set designed with understated stripes and hotel-style calm.",
+      "details": [
+        "Breathable cotton weave",
+        "Includes duvet cover and pillow cases",
+        "Minimal palette for modern bedrooms"
+      ],
+      "delivery": "Delivery in 3 days",
+      "sizes": ["Queen", "King"],
+      "colors": ["Sand", "White"],
+      "images": [
+        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+      ],
+      "reviews": [
+        {
+          "author": "Harshita V.",
+          "title": "Soft and clean-looking",
+          "rating": 4,
+          "comment": "Exactly the kind of calm neutral bedding I wanted."
+        }
+      ]
+    }
+  ]
+}

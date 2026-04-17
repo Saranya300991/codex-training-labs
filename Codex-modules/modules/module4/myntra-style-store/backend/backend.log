@@ -1,0 +1,7 @@
+
+> backend@1.0.0 start
+> node index.js
+
+Catalog API listening on http://localhost:5174
+[2026-04-16T04:42:34.117Z] GET / 404 7ms
+[2026-04-16T04:45:45.878Z] GET /api/products 200 37ms

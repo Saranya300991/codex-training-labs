@@ -1,0 +1,346 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 2495 >>
+stream
+BT
+/F1 11 Tf
+14 TL
+50 790 Td
+(DOCUMENTARY PROMPT ANSWERS) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(This documentary reference now tells the story of the Myntra-style store after the) Tj
+T*
+(modification ideas were implemented. Each section explains what the experience looked) Tj
+T*
+(like before and how the new version changes the narrative.) Tj
+T*
+() Tj
+T*
+(1. ARCHITECTURE NARRATIVE) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Before the changes, the documentary arc was about a clean React frontend paired with a) Tj
+T*
+(lightweight Express backend that returned formatted prices and a banner. It showed a) Tj
+T*
+(storefront that was visually polished but mostly passive: the user could browse) Tj
+T*
+(products, see categories, and understand how the API response powered the grid.) Tj
+T*
+() Tj
+T*
+(After the changes, the story becomes more dynamic. The business need is no longer just) Tj
+T*
+("show curated festival-ready products," but "help shoppers explore, filter, save, and) Tj
+T*
+(act on those products without losing the simplicity of the codebase." The challenge) Tj
+T*
+(becomes orchestration: one API payload now needs to support rotating promotions, hover-) Tj
+T*
+(led exploration, product filtering, and a persistent mini cart. The resolution is still) Tj
+T*
+(the React UI plus Express catalog pairing, but now the frontend turns one curated) Tj
+T*
+(response into multiple merchandised experiences, and the backend has evolved from a) Tj
+T*
+(static route into a small, observable catalog service backed by JSON data and) Tj
+T*
+(validation.) Tj
+T*
+() Tj
+T*
+(2. TECHNICAL PERSONAS) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(DESIGNER) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Before the changes, the designer mainly shaped the hero, category cards, and product) Tj
+T*
+(grid in `frontend/src/App.css`. The visual system was already warm and commerce-) Tj
+T*
+(oriented, but the motion and interactivity were restrained.) Tj
+T*
+() Tj
+T*
+(After the changes, the designer's scope expands to:) Tj
+T*
+() Tj
+T*
+(- the animated `OfferRotator` panel that replaced the old status card) Tj
+T*
+(- the mega menu dropdown states and grouped storytelling blocks) Tj
+T*
+(- the filter drawer layout and form controls) Tj
+T*
+(- the mini cart sidebar and saved-state presentation) Tj
+T*
+() Tj
+T*
+(The key files remain `frontend/src/App.css` and `frontend/src/index.css`, but the design) Tj
+T*
+( work now covers motion, layered panels, and responsive multi-column composition rather) Tj
+T*
+(than just static sections.) Tj
+T*
+() Tj
+T*
+(FRONT-END ENGINEER) Tj
+T*
+() Tj
+ET
+endstream
+endobj
+3 0 obj
+<< /Type /Page /Parent 8 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+4 0 obj
+<< /Length 2633 >>
+stream
+BT
+/F1 11 Tf
+14 TL
+50 790 Td
+() Tj
+T*
+(Before the changes, the front-end engineer mostly owned `fetchCatalog\(\)`, the) Tj
+T*
+(loading/error states, and mapping `products` into `ProductCard` components in) Tj
+T*
+(`frontend/src/App.jsx`.) Tj
+T*
+() Tj
+T*
+(After the changes, the front-end engineer now owns several coordinated systems inside) Tj
+T*
+(that same file:) Tj
+T*
+() Tj
+T*
+(- `MegaMenu` for hover and focus interactions with documented ARIA attributes) Tj
+T*
+(- `FilterDrawer` for category, price, and delivery selectors) Tj
+T*
+(- `OfferRotator` for timer-based banner rotation) Tj
+T*
+(- `MiniCart` for `localStorage` persistence, remove actions, and running totals) Tj
+T*
+(- derived collections such as `megaMenuGroups`, `filteredProducts`, and `cartTotal`) Tj
+T*
+() Tj
+T*
+(The frontend role is now less about rendering one payload directly and more about) Tj
+T*
+(deriving multiple user experiences from shared state.) Tj
+T*
+() Tj
+T*
+(BACKEND ENGINEER) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Before the changes, the backend engineer owned one inline array in `backend/index.js`,) Tj
+T*
+(one route, one startup log, and server-side price formatting.) Tj
+T*
+() Tj
+T*
+(After the changes, the backend engineer owns a more maintainable API boundary:) Tj
+T*
+() Tj
+T*
+(- catalog content moved into `backend/catalog.json`) Tj
+T*
+(- response shaping still happens in `backend/index.js`) Tj
+T*
+(- request logging middleware records live traffic) Tj
+T*
+(- `validateCatalogResponse\(\)` guards the response contract) Tj
+T*
+(- `GET /api/health` offers a basic operational endpoint) Tj
+T*
+(- `validate-catalog.js` provides a script-based integrity check for the source data) Tj
+T*
+() Tj
+T*
+(The backend persona now reads less like a demo setup and more like an engineer preparing) Tj
+T*
+( a small service for growth.) Tj
+T*
+() Tj
+T*
+(3. DATA PIPELINE VOICEOVER) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Before the modifications, the server took an inline product array, formatted each INR) Tj
+T*
+(price, and returned a banner plus a curated list. The frontend fetched that response on) Tj
+T*
+(first render, saved it into state, and used it to populate the hero highlights and) Tj
+T*
+(product cards.) Tj
+T*
+() Tj
+T*
+(After the modifications, the backend reads catalog content from `backend/catalog.json`,) Tj
+T*
+(enriches products with `priceFormatted`, validates the payload, and sends a response) Tj
+T*
+(that includes both `offers` and `curated` products. The frontend in) Tj
+T*
+(`frontend/src/App.jsx` hydrates that response into multiple layers at once: the banner) Tj
+T*
+(chips, the rotating localized offer panel, the mega menu groupings, the filter drawer) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 8 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 2506 >>
+stream
+BT
+/F1 11 Tf
+14 TL
+50 790 Td
+(results, and the localStorage-backed mini cart. The pipeline is still compact, but it) Tj
+T*
+(now feels like a fuller retail system because one response powers discovery, promotion,) Tj
+T*
+(and persistence.) Tj
+T*
+() Tj
+T*
+(4. OBSERVABILITY CUTAWAYS) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Before the changes, the best observability moment was the hero status card and the) Tj
+T*
+(`console.error\(error\)` path inside `fetchCatalog\(\)`. On the backend, the main signal was) Tj
+T*
+( the startup log emitted when the server began listening.) Tj
+T*
+() Tj
+T*
+(After the changes, the documentary has better cutaways to highlight:) Tj
+T*
+() Tj
+T*
+(- the rotating offer panel, which shows that promotional messages are now part of the) Tj
+T*
+(live payload) Tj
+T*
+(- the filter drawer result count, which makes frontend-derived state visible) Tj
+T*
+(- the mini cart, which demonstrates that state persists between sessions through) Tj
+T*
+(`localStorage`) Tj
+T*
+(- request logging middleware in `backend/index.js`, which now prints method, path,) Tj
+T*
+(status, and duration for every request) Tj
+T*
+(- the `/api/health` endpoint as a lightweight operational probe) Tj
+T*
+(- `npm run validate` as a simple data integrity gate for the JSON-backed catalog) Tj
+T*
+() Tj
+T*
+(The repo is still intentionally small, but the observability story is now much stronger) Tj
+T*
+(than before because the backend emits per-request traces and the frontend exposes more) Tj
+T*
+(of its state transitions to the viewer.) Tj
+T*
+() Tj
+T*
+(5. NEXT EXPERIMENTS) Tj
+T*
+() Tj
+T*
+() Tj
+T*
+(Before the modifications, the next experiments centered on adding tests, logging, and) Tj
+T*
+(perhaps a database-backed catalog. Those ideas still matter, but the new codebase opens) Tj
+T*
+(better follow-on paths.) Tj
+T*
+() Tj
+T*
+(After the modifications, the most useful next experiments are:) Tj
+T*
+() Tj
+T*
+(- add automated UI tests for the filter drawer, mega menu, and mini cart persistence) Tj
+T*
+(- add API tests that verify `offers`, `curated`, and `priceFormatted` together) Tj
+T*
+(- move from `catalog.json` to a mock database or service layer without changing the) Tj
+T*
+(response contract) Tj
+T*
+(- record analytics for filter selection, menu interaction, and cart additions) Tj
+T*
+(- add a small badge or toast system so users get feedback when cart state changes) Tj
+T*
+() Tj
+T*
+(The important documentary point is that the app now has real interaction seams to) Tj
+T*
+(explore, not just static rendering seams.) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 8 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Type /Pages /Kids [ 3 0 R 5 0 R 7 0 R ] /Count 3 >>
+endobj
+9 0 obj
+<< /Type /Catalog /Pages 8 0 R >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000002631 00000 n 
+0000002757 00000 n 
+0000005441 00000 n 
+0000005567 00000 n 
+0000008124 00000 n 
+0000008250 00000 n 
+0000008321 00000 n 
+trailer
+<< /Size 10 /Root 9 0 R >>
+startxref
+8370
+%%EOF
